@@ -66,5 +66,10 @@ def demander_choix(message, options):
 
     return options[choix-1]
 
+import json
 
+def load_fichier(chemin_fichier):
+    with open(chemin_fichier, "r", encoding="utf-8") as fichier:
+        donnees = json.load(fichier)
+    return donnees
 
