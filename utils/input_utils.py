@@ -59,4 +59,3 @@ print(demander_nombre("Entrer nombre : ",-30000,100000))
 def demander_choix(message,options):
     choix=str(input(message))
 
-
