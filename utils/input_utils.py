@@ -49,14 +49,22 @@ def demander_nombre(message, min_val=None, max_val=None):
             else:
                 valid = True
 
-    return message + str(nombre_final)
-
-print(demander_nombre("Entrer nombre : ",-30000,100000))
+    return nombre_final
 
 
+def demander_choix(message, options):
+    print(message)
+    print()
+
+    for i in range(len(options)):
+        print(f"{i+1}. {options[i]}")
+
+    print()
+
+    choix = demander_nombre("Votre choix : ",1,len(options))
 
 
-def demander_choix(message,options):
-    choix=str(input(message))
+    return options[choix-1]
+
 
 
