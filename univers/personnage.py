@@ -35,4 +35,3 @@ personnage = {
     }
 }
 
-afficher_personnage(personnage)
