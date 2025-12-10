@@ -1,6 +1,5 @@
 import univers.maison
 import utils.input_utils
-from chapitres.chapitre_1 import creer_personnage
 from univers.personnage import afficher_personnage
 from utils.input_utils import load_fichier
 
@@ -83,7 +82,7 @@ def ceremonie_repartition(joueur):
     joueur["maison"] = gagnant
     return gagnant
 def installation_salle_commune(joueur):
-    maisons = load_fichier("../data/maisons.json")
+    maisons = load_fichier("data/maisons.json")
     maison = joueur["maison"]
     info = maisons.get(maison)
 

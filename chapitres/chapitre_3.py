@@ -1,10 +1,12 @@
 import random
+import univers.personnage
+import univers.maison
 from univers.maison import actualiser_points_maison, afficher_maison_gagnante
 from univers.personnage import afficher_personnage
 from utils.input_utils import load_fichier
 
 
-def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
+def apprendre_sorts(joueur, chemin_fichier="data/sorts.json"):
     liste_sorts = load_fichier(chemin_fichier)
 
     offensifs = [s for s in liste_sorts if s["type"].lower() == "offensif"]
@@ -29,7 +31,7 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
     for sort in sorts_appris:
         print(f"- {sort['nom']} ({sort['type']}) : {sort['description']}")
 
-def quiz_magie(joueur, chemin_fichier="../data/quiz_magie.json"):
+def quiz_magie(joueur, chemin_fichier="data/quiz_magie.json"):
     questions = load_fichier(chemin_fichier)
 
     selection = []

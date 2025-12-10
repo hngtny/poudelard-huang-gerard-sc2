@@ -1,4 +1,3 @@
-import data
 def demander_texte(message):
     texte = str(input(message)).strip()
     while texte == "":

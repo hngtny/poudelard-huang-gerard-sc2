@@ -1,5 +1,5 @@
 import utils.input_utils
-import univers
+import univers.personnage
 from utils.input_utils import load_fichier
 
 
@@ -67,7 +67,7 @@ def rencontrer_hagrid(personnage):
     print("Vous partez tous les deux en direction du Chemin de Traverse...")
 
 def acheter_fournitures(personnage):
-    catalogue = load_fichier(("../data/inventaire.json"))
+    catalogue = load_fichier("data/inventaire.json")
 
     obligatoires = ["Baguette magique", "Robe de sorcier", "Manuel de potions"]
     animaux = {
@@ -132,7 +132,7 @@ def acheter_fournitures(personnage):
     argent -= prix
 
     personnage["inventaire"] = inventaire
-    personnage["argent"] = argent
+    personnage["Argent"] = argent
 
     print(f"Vous avez choisi : {animal} (-{prix} galions).")
     print("Tous les objets obligatoires ont été achetés avec succès ! Voici votre inventaire final :")
@@ -158,4 +158,3 @@ def lancer_chapitre_1():
     acheter_fournitures(joueur)
     print("Fin du Chapitre 1 ! Votre aventure commence a Poudlard !!!")
     return joueur
-lancer_chapitre_1()
