@@ -26,22 +26,6 @@ def afficher_personnage(joueur):
             print(f"{cle} : {valeur}")
 
 
-personnage = {
-    "Nom": "Potter",
-    "Prénom": "Harry",
-    "Argent": 100,
-    "Inventaire": [],
-    "Sortilèges": [],
-    "Attributs": {
-        "courage": 8,
-        "intelligence": 8,
-        "loyauté": 8,
-        "ambition": 8
-    }
-}
-
-
-
 def modifier_argent(joueur,montant):
     joueur["Argent"] += montant
     return joueur

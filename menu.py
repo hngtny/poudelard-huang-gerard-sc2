@@ -21,7 +21,7 @@ def lancer_choix_menu():
 
     elif choix == "2":
         print("Merci d'avoir joué ! À bientôt.")
-        break
+        exit(0)
 
     else:
         print("Choix invalide. Veuillez saisir 1 ou 2.")
