@@ -71,4 +71,13 @@ def ceremonie_repartition(joueur):
             ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"]
         )
     ]
-    univers.maison.repartition_maison(joueur, questions)
+    print("La cérémonie de répartition commence dans la Grande Salle...")
+    print("Le Choixpeau magique t’observe longuement avant de poser ses questions:")
+    gagnant = univers.maison.repartition_maison(joueur, questions)
+    print(f"Le Choixpeau s'exclame : {gagnant} !!!")
+    print(f"Tu rejoins les élèves de {gagnant} sous les acclamations !")
+    #il faut modifier le dico personnage et rajouter la maison
+
+
+
+ceremonie_repartition(personnage)

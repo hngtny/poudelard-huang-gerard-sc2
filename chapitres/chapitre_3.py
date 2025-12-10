@@ -62,3 +62,4 @@ def lancer_chapitre_3(joueur,maison):
     actualiser_points_maison(univers.maison.maisons, maison, point)
     afficher_maison_gagnante(univers.maison.maisons)
     afficher_personnage(joueur)
+

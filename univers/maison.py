@@ -59,3 +59,4 @@ def repartition_maison(joueur, questions):
             maison_gagnante = maison
 
     return maison_gagnante
+
