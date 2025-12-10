@@ -1,7 +1,5 @@
 import univers.personnage
 import utils.input_utils
-import data
-import json
 
 from utils.input_utils import load_fichier
 
