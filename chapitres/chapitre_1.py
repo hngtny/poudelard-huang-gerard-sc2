@@ -1,6 +1,9 @@
 import univers.personnage
 import utils.input_utils
+import data
+import json
 
+from utils.input_utils import load_fichier
 
 
 def introduction():
@@ -49,7 +52,7 @@ def recevoir_lettre():
     print("Vous acceptez l’invitation. Votre aventure magique commence...")
 
 def rencontrer_hagrid(personnage):
-    print(f"Hagrid : 'Salut {personnage.prenom} ! Je suis venu t’aider à faire tes achats sur")
+    print(f"Hagrid : 'Salut {personnage["Prenom"]} ! Je suis venu t’aider à faire tes achats sur")
     print("le Chemin de Traverse.'")
     print("Voulez-vous suivre Hagrid ?")
     print("1. Oui")
@@ -65,3 +68,97 @@ def rencontrer_hagrid(personnage):
         print("Hagrid vous attrape par le col puis vous met dans sa poche. ")
 
     print("Vous partez tous les deux en direction du Chemin de Traverse...")
+
+def acheter_fournitures(personnage):
+    catalogue = load_fichier(("../data/inventaire.json"))
+
+    obligatoires = ["Baguette magique", "Robe de sorcier", "Manuel de potions"]
+    animaux = {
+        "1": ("Chouette", 20),
+        "2": ("Chat", 15),
+        "3": ("Rat", 10),
+        "4": ("Crapaud", 5)
+    }
+
+    print("Bienvenue sur le Chemin de Traverse !")
+    print("Catalogue des objets disponibles :")
+    for k, v in catalogue.items():
+        print(f"{k}. {v[0]} - {v[1]} galions")
+
+    argent = personnage["Argent"]
+    inventaire = personnage["Inventaire"]
+
+    print(f"Vous avez {argent} galions.")
+
+    while obligatoires:
+        print("Objets obligatoires restant à acheter :", ", ".join(obligatoires))
+        choix = input("Entrez le numéro de l'objet à acheter : ")
+
+        if choix not in catalogue:
+            print("Choix invalide.")
+            continue
+
+        nom, prix = catalogue[choix]
+
+        if prix > argent:
+            print("Vous n'avez pas assez d'argent. Vous perdez la partie.")
+            return
+
+        inventaire.append(nom)
+        argent -= prix
+        print(f"Vous avez acheté : {nom} (-{prix} galions).")
+        print(f"Vous avez {argent} galions.")
+
+        if nom in obligatoires:
+            obligatoires.remove(nom)
+
+    print("Tous les objets obligatoires ont été achetés !")
+    print("Il est temps de choisir votre animal de compagnie pour Poudlard !")
+    print(f"Vous avez {argent} galions.")
+    print("Voici les animaux disponibles :")
+    for k, v in animaux.items():
+        print(f"{k}. {v[0]} - {v[1]} galions")
+
+    choix_animal = input("Votre choix : ")
+
+    if choix_animal not in animaux:
+        print("Choix invalide. Vous perdez la partie.")
+        return
+
+    animal, prix = animaux[choix_animal]
+
+    if prix > argent:
+        print("Vous n'avez pas assez d'argent. Vous perdez la partie.")
+        return
+
+    inventaire.append(animal)
+    argent -= prix
+
+    personnage["inventaire"] = inventaire
+    personnage["argent"] = argent
+
+    print(f"Vous avez choisi : {animal} (-{prix} galions).")
+    print("Tous les objets obligatoires ont été achetés avec succès ! Voici votre inventaire final :")
+    print("Profil du personnage :")
+    print(f"Nom : {personnage['Nom']}")
+    print(f"Prenom : {personnage['Prenom']}")
+    print(f"Argent : {personnage['Argent']}")
+    print("Inventaire :", ", ".join(personnage["Inventaire"]))
+
+    print("Sortilèges :")
+    for s in personnage["Sortileges"]:
+        print("-", s)
+
+    print("Attributs :")
+    for k, v in personnage["Attributs"].items():
+        print(f"- {k} : {v}")
+
+def lancer_chapitre_1():
+    introduction()
+    joueur = creer_personnage()
+    recevoir_lettre()
+    rencontrer_hagrid(joueur)
+    acheter_fournitures(joueur)
+    print("Fin du Chapitre 1 ! Votre aventure commence a Poudlard !!!")
+    return joueur
+
