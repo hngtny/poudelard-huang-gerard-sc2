@@ -1,5 +1,9 @@
-import chapitres
-import utils
+
+from chapitres.chapitre_1 import lancer_chapitre_1
+from chapitres.chapitre_2 import lancer_chapitre_2
+from chapitres.chapitre_3 import lancer_chapitre_3
+from utils.input_utils import demander_choix
+
 
 def afficher_menu_principal():
     print("1. Lancer le Chapitre 1 – L’arrivée dans le monde magique.")
@@ -13,7 +17,7 @@ def lancer_choix_menu():
         "Serdaigle": 0
     }
     afficher_menu_principal()
-    choix = demander_choix("Votre choix :",["1","2"])
+    choix = input("Votre choix : ")
     if choix == "1":
         joueur = lancer_chapitre_1()
         maison = lancer_chapitre_2(joueur)

@@ -1,5 +1,9 @@
 import univers.maison
 import utils.input_utils
+from chapitres.chapitre_1 import creer_personnage
+from univers.personnage import afficher_personnage
+from utils.input_utils import load_fichier
+
 
 def rencontrer_amis(joueur):
     print("Vous montez à bord du Poudlard Express. Le train démarre lentement en direction du Nord...)")
@@ -76,8 +80,33 @@ def ceremonie_repartition(joueur):
     gagnant = univers.maison.repartition_maison(joueur, questions)
     print(f"Le Choixpeau s'exclame : {gagnant} !!!")
     print(f"Tu rejoins les élèves de {gagnant} sous les acclamations !")
-    #il faut modifier le dico personnage et rajouter la maison
+    joueur["maison"] = gagnant
+    return gagnant
+def installation_salle_commune(joueur):
+    maisons = load_fichier("../data/maisons.json")
+    maison = joueur["maison"]
+    info = maisons.get(maison)
 
+    if not info:
+        print("Erreur : maison inconnue.")
+        return
 
+    print(f"{info['emoji']} {maison}")
+    print(info["description"])
+    print(info["message_installation"])
+    print(f"Couleurs : {', '.join(info['couleurs'])}")
+    print(f"Traits : {', '.join(info['traits'])}")
 
-ceremonie_repartition(personnage)
+    for attr, bonus in info["bonus_attributs"].items():
+        joueur["Attributs"][attr] = joueur["Attributs"].get(attr, 0) + bonus
+
+    print("\n✨ Tes attributs ont été mis à jour selon les bonus de ta maison.\n")
+
+def lancer_chapitre_2(joueur):
+    rencontrer_amis(joueur)
+    mot_de_bienvenue()
+    maison = ceremonie_repartition(joueur)
+    joueur["maison"] = maison
+    installation_salle_commune(joueur)
+    afficher_personnage(joueur)
+    print("\n✨ Fin du chapitre 2 ! Demain, tes premiers cours à Poudlard commencent...\n")

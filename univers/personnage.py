@@ -5,7 +5,8 @@ def initialiser_personnage(nom,prenom,attributs):
         "Argent": 100,
         "Inventaire": [],
         "Sortileges": [],
-        "Attributs": attributs
+        "Attributs": attributs,
+        "maison": "",
     }
     return dico_personnage
 

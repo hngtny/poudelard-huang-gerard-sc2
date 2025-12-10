@@ -1,6 +1,5 @@
-import univers.personnage
 import utils.input_utils
-
+import univers
 from utils.input_utils import load_fichier
 
 
@@ -159,4 +158,4 @@ def lancer_chapitre_1():
     acheter_fournitures(joueur)
     print("Fin du Chapitre 1 ! Votre aventure commence a Poudlard !!!")
     return joueur
-
+lancer_chapitre_1()
