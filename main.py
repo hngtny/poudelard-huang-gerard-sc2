@@ -1,1 +1,2 @@
-print("Configuration initiale projet")
+import menu
+lancer_choix_menu()
