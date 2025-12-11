@@ -18,14 +18,16 @@ def lancer_choix_menu():
     }
     afficher_menu_principal()
     choix = input("Votre choix : ")
+    while choix!="1" and choix!="2":
+        print("Choix invalide. Veuillez saisir 1 ou 2.")
+        choix = input("Votre choix : ")
+
     if choix == "1":
         joueur = lancer_chapitre_1()
-        maison = lancer_chapitre_2(joueur)
-        lancer_chapitre_3(joueur, maison)
+        lancer_chapitre_2(joueur)
+        maison_joueur = joueur["maison"]
+        lancer_chapitre_3(joueur, maison_joueur)
 
     elif choix == "2":
         print("Merci d'avoir joué ! À bientôt.")
         exit(0)
-
-    else:
-        print("Choix invalide. Veuillez saisir 1 ou 2.")

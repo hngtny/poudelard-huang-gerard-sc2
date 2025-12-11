@@ -37,16 +37,15 @@ def recevoir_lettre():
     print("l’école de sorcellerie de Poudlard ! »")
     print()
     print("Souhaitez-vous accepter cette invitation et partir pour Poudlard ?")
-    print("1. Oui, bien sûr !")
-    print("2. Non, je préfère travailler mon algèbre")
 
-    if utils.input_utils.demander_choix("Votre choix :",["1","2"]) == "2":
+    choix = utils.input_utils.demander_choix("Votre choix :",["Oui, bien sûr !","Non, je préfère travailler mon algèbre"])
+    if choix=="Non, je préfère travailler mon algèbre":
         print("Vous déchirez la lettre, Le prof de Mathématique pousse un cri de joie:")
         print("« EXCELLENT ! Enfin quelqu’un de passionné par les nombres complexes dans cette école ! »")
         print("Le monde magique ne saura jamais que vous existiez... Fin du jeu.")
         exit(0)
-
-    print("Vous acceptez l’invitation. Votre aventure magique commence...")
+    else:
+        print("Vous acceptez l’invitation. Votre aventure magique commence...")
 
 def rencontrer_hagrid(personnage):
     print(f"Hagrid : 'Salut {personnage["Prenom"]} ! Je suis venu t’aider à faire tes achats sur")
@@ -99,7 +98,7 @@ def acheter_fournitures(personnage):
 
         if prix > argent:
             print("Vous n'avez pas assez d'argent. Vous perdez la partie.")
-            return
+            exit(0)
 
         inventaire.append(nom)
         argent -= prix

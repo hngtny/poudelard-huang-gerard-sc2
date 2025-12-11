@@ -16,14 +16,17 @@ def apprendre_sorts(joueur, chemin_fichier="data/sorts.json"):
     sorts_appris = []
     sorts_appris.append(random.choice(offensifs))
     sorts_appris.append(random.choice(defensifs))
-    sorts_appris.extend(random.sample(utilitaires, 3))
+    sorts_appris.append(random.choice(utilitaires))
+    sorts_appris.append(random.choice(utilitaires))
+    sorts_appris.append(random.choice(utilitaires))
 
     print("Tu commences tes cours de magie à Poudlard...")
 
     for sort in sorts_appris:
         joueur["Sortileges"].append(sort["nom"])
         print(f"Tu viens d'apprendre le sortilège : {sort['nom']} ({sort['type']})")
-        input("Appuie sur Entrée pour continuer...")
+        print("Appuie sur Entrée pour continuer...")
+        input()
 
     print("Tu as terminé ton apprentissage de base à Poudlard !")
     print("Voici les sortilèges que tu maîtrises désormais :")
