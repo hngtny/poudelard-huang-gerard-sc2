@@ -36,6 +36,7 @@ def rencontrer_amis(joueur):
         joueur["Attributs"]["courage"]+=1
         print("Drago est énernvé : Ne fais pas trop le malin avec moi !")
     print("Tes attributs mis à jour :")
+    print(joueur["Attributs"])
     return joueur["Attributs"]
 
 personnage = {
@@ -54,6 +55,7 @@ personnage = {
 
 def mot_de_bienvenue():
     print("Bienvenue à Poudlard, je suis le professeur Dumbledore")
+    print("Appuie sur Entrée pour continuer...")
     input()
 
 def ceremonie_repartition(joueur):
@@ -81,6 +83,8 @@ def ceremonie_repartition(joueur):
     print(f"Tu rejoins les élèves de {gagnant} sous les acclamations !")
     joueur["maison"] = gagnant
     return gagnant
+
+
 def installation_salle_commune(joueur):
     maisons = load_fichier("data/maisons.json")
     maison = joueur["maison"]
