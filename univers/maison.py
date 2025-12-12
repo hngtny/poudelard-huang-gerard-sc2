@@ -22,9 +22,11 @@ def afficher_maison_gagnante(maisons):
         if score == score_max:
             gagnants.append(maison)
     if len(gagnants) == 1:
-        print(f"La maison gagnante est : {gagnants} avec {score_max} points")
+        print(f"La maison gagnante est :{', '.join(gagnants)} avec {score_max} points")
+        input("Appuie sur Entrée pour continuer...")
     else:
-        print(f"Les maisons gagnantes sont : {gagnants}, avec {score_max} points")
+        print(f"Les maisons gagnantes sont : {', '.join(gagnants)}, avec {score_max} points")
+        input("Appuie sur Entrée pour continuer...")
 
 
 def repartition_maison(joueur, questions):
@@ -46,7 +48,11 @@ def repartition_maison(joueur, questions):
         for option in choix:
             print(str(i) + ". " + option)
             i += 1
-        reponse = int(input("Ton choix : "))
+        reponse = input("Ton choix : ")
+        while reponse not in ["1","2","3","4"]:
+            print("Ton choix n'est pas valide")
+            reponse = input("Ton choix : ")
+        reponse = int(reponse)
         maison = maisons_associees[reponse - 1]
         scores[maison] += 3
         print()

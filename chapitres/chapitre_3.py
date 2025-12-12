@@ -25,8 +25,7 @@ def apprendre_sorts(joueur, chemin_fichier="data/sorts.json"):
     for sort in sorts_appris:
         joueur["Sortileges"].append(sort["nom"])
         print(f"Tu viens d'apprendre le sortilège : {sort['nom']} ({sort['type']})")
-        print("Appuie sur Entrée pour continuer...")
-        input()
+        input("Appuie sur Entrée pour continuer...")
 
     print("Tu as terminé ton apprentissage de base à Poudlard !")
     print("Voici les sortilèges que tu maîtrises désormais :")
@@ -34,10 +33,8 @@ def apprendre_sorts(joueur, chemin_fichier="data/sorts.json"):
     for sort in sorts_appris:
         print(f"- {sort['nom']} ({sort['type']}) : {sort['description']}")
 
-import random
-
-def quiz_magie(chemin_fichier):
-    questions = load_fichier(chemin_fichier)
+def quiz_magie(joueur):
+    questions = load_fichier("data/quiz_magie.json")
 
     selection = []
     while len(selection) < 4:

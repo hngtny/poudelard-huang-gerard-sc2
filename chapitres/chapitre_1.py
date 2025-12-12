@@ -13,7 +13,11 @@ def introduction():
 
 def creer_personnage():
     nom = input("Entrez le nom de votre personnage : ")
+    while nom == "":
+        nom = input("Entrez le nom de votre personnage : ")
     prenom = input("Entrez le prénom de votre personnage : ")
+    while prenom == "":
+        prenom = input("Entrez le prénom de votre personnage : ")
 
     print("Choisissez vos attributs :")
 
@@ -50,13 +54,8 @@ def recevoir_lettre():
 def rencontrer_hagrid(personnage):
     print(f"Hagrid : 'Salut {personnage["Prenom"]} ! Je suis venu t’aider à faire tes achats sur")
     print("le Chemin de Traverse.'")
-    print("Voulez-vous suivre Hagrid ?")
-    print("1. Oui")
-    print("2. Non")
 
-    choix = ""
-    while choix not in ("1", "2"):
-        choix = input("Votre choix : ")
+    choix = utils.input_utils.demander_choix("Voulez-vous suivre Hagrid",[" Oui"," Non"])
 
     if choix == "1":
         print("Vous décidez de suivre Hagrid.")
@@ -115,17 +114,19 @@ def acheter_fournitures(personnage):
     for k, v in animaux.items():
         print(f"{k}. {v[0]} - {v[1]} galions")
 
-    choix_animal = input("Votre choix : ")
+    while True:
+        choix_animal = input("Votre choix : ")
 
-    if choix_animal not in animaux:
-        print("Choix invalide. Vous perdez la partie.")
-        return
+        if choix_animal in animaux:
+            break
+        else:
+            print("Choix invalide. Veuillez saisir un numéro d’animal.")
 
     animal, prix = animaux[choix_animal]
 
     if prix > argent:
         print("Vous n'avez pas assez d'argent. Vous perdez la partie.")
-        return
+        exit(0)
 
     inventaire.append(animal)
     argent -= prix
