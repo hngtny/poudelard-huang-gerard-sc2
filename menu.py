@@ -2,6 +2,7 @@
 from chapitres.chapitre_1 import lancer_chapitre_1
 from chapitres.chapitre_2 import lancer_chapitre_2
 from chapitres.chapitre_3 import lancer_chapitre_3
+from chapitres.chapitre_4 import lancer_chapitre4_quidditch
 from utils.input_utils import demander_choix
 
 
@@ -27,6 +28,7 @@ def lancer_choix_menu():
         lancer_chapitre_2(joueur)
         maison_joueur = joueur["maison"]
         lancer_chapitre_3(joueur, maison_joueur)
+        lancer_chapitre4_quidditch(joueur, maison_joueur)
 
     elif choix == "2":
         print("Merci d'avoir joué ! À bientôt.")
