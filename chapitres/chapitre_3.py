@@ -31,7 +31,9 @@ def apprendre_sorts(joueur, chemin_fichier="data/sorts.json"):
     for sort in sorts_appris:
         print(f"- {sort['nom']} ({sort['type']}) : {sort['description']}")
 
-def quiz_magie(joueur, chemin_fichier="data/quiz_magie.json"):
+import random
+
+def quiz_magie(chemin_fichier):
     questions = load_fichier(chemin_fichier)
 
     selection = []
@@ -45,7 +47,8 @@ def quiz_magie(joueur, chemin_fichier="data/quiz_magie.json"):
     print("Bienvenue au quiz de magie de Poudlard !")
     print("Réponds correctement aux 4 questions pour faire gagner des points à ta maison.")
 
-    for i, q in enumerate(selection, 1):
+    i = 1
+    for q in selection:
         print(f"{i}. {q['question']}")
         reponse = input("> ")
 
@@ -55,8 +58,11 @@ def quiz_magie(joueur, chemin_fichier="data/quiz_magie.json"):
         else:
             print(f"Mauvaise réponse. La bonne réponse était : {q['reponse']}")
 
+        i += 1
+
     print(f"Score obtenu : {score} points")
     return score
+
 
 def lancer_chapitre_3(joueur,maison):
     apprendre_sorts(joueur)
