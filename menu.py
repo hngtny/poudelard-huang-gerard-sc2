@@ -28,7 +28,7 @@ def lancer_choix_menu():
         lancer_chapitre_2(joueur)
         maison_joueur = joueur["maison"]
         lancer_chapitre_3(joueur, maison_joueur)
-        lancer_chapitre4_quidditch(joueur, maison_joueur)
+        lancer_chapitre4_quidditch(joueur, maisons)
 
     elif choix == "2":
         print("Merci d'avoir joué ! À bientôt.")

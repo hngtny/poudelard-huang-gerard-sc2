@@ -79,6 +79,7 @@ def match_quidditch(joueur, maisons):
     afficher_equipe(maison_adverse, equipe_adverse)
 
     print(f"Tu joues pour {maison_joueur} en tant qu’Attrapeur")
+    input()
 
     for tour in range(1, 21):
         print(f"━━━ Tour {tour} ━━━")

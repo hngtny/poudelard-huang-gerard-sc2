@@ -16,9 +16,10 @@ def apprendre_sorts(joueur, chemin_fichier="data/sorts.json"):
     sorts_appris = []
     sorts_appris.append(random.choice(offensifs))
     sorts_appris.append(random.choice(defensifs))
-    sorts_appris.append(random.choice(utilitaires))
-    sorts_appris.append(random.choice(utilitaires))
-    sorts_appris.append(random.choice(utilitaires))
+    for i in range(3):
+        sort = random.choice(utilitaires)
+        if sort not in sorts_appris:
+            sorts_appris.append(random.choice(utilitaires))
 
     print("Tu commences tes cours de magie à Poudlard...")
 
