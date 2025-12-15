@@ -8,7 +8,7 @@ def introduction():
     print("L'étrange grimoire s'illumine dans vos mains...")
     print("Votre histoire commence maintenant...")
     print()
-    input("Appuyez sur une touche pour continuer...")
+    input("✨ Appuyez sur une touche pour continuer...")
 
 
 def creer_personnage():
@@ -156,5 +156,5 @@ def lancer_chapitre_1():
     recevoir_lettre()
     rencontrer_hagrid(joueur)
     acheter_fournitures(joueur)
-    print("Fin du Chapitre 1 ! Votre aventure commence a Poudlard !!!")
+    print("✨ Fin du Chapitre 1 ! Votre aventure commence a Poudlard !!!")
     return joueur

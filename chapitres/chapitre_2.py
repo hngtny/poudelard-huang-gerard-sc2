@@ -54,8 +54,8 @@ personnage = {
 }
 
 def mot_de_bienvenue():
-    print("Bienvenue à Poudlard, je suis le professeur Dumbledore")
-    input("Appuie sur Entrée pour continuer...")
+    print(" Bienvenue à Poudlard, je suis le professeur Dumbledore")
+    input("✨ Appuie sur Entrée pour continuer...")
 
 def ceremonie_repartition(joueur):
     questions = [
@@ -102,8 +102,8 @@ def installation_salle_commune(joueur):
     for attr, bonus in info["bonus_attributs"].items():
         joueur["Attributs"][attr] = joueur["Attributs"].get(attr, 0) + bonus
 
-    print("\n✨ Tes attributs ont été mis à jour selon les bonus de ta maison.\n")
-    input("Appuie sur Entrée pour continuer...")
+    print("\n Tes attributs ont été mis à jour selon les bonus de ta maison.\n")
+    input("✨Appuie sur Entrée pour continuer...")
 
 def lancer_chapitre_2(joueur):
     rencontrer_amis(joueur)

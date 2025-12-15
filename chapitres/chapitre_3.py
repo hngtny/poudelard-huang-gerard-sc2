@@ -70,5 +70,6 @@ def lancer_chapitre_3(joueur,maison):
     point = quiz_magie(joueur)
     actualiser_points_maison(univers.maison.maisons, maison, point)
     afficher_maison_gagnante(univers.maison.maisons)
+    print("✨ Fin du Chapitre 3 ! C'est partis pour le quidditch !")
     afficher_personnage(joueur)
 

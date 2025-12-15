@@ -93,7 +93,7 @@ def match_quidditch(joueur, maisons):
             gagnant = attraper_vifdor(equipe_joueur, equipe_adverse)
             break
 
-        input("Appuyez sur Entrée pour continuer")
+        input("✨ Appuyez sur Entrée pour continuer")
 
     print("Fin du match !")
     afficher_score(equipe_joueur, equipe_adverse)
@@ -115,7 +115,8 @@ def match_quidditch(joueur, maisons):
 def lancer_chapitre4_quidditch(joueur, maisons):
     print("━━━ Chapitre 4 : Le Match de Quidditch ━━━")
     match_quidditch(joueur, maisons)
-    print("Fin du Chapitre 4 — Quelle performance incroyable sur le terrain !")
+    print("✨ Fin du Chapitre 4 — Quelle performance incroyable sur le terrain !")
+    input()
     print("Voici vos informations complètes :")
     print(f"Nom : {joueur['Nom']}")
     print(f"Prenom : {joueur['Prenom']}")
